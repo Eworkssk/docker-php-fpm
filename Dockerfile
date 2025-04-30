@@ -44,6 +44,7 @@ RUN apt-get update -y && apt-get install --no-install-recommends --no-install-su
     zip \
     xz-utils \
     libvips-tools && \
+    imagemagick && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y && \
     apt-get clean -y && \
