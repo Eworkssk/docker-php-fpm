@@ -37,6 +37,7 @@ RUN apt-get update -y && apt-get install --no-install-recommends --no-install-su
     git \
     ghostscript \
     jq \
+    libfcgi-bin \
     poppler-utils \
     ssh \
     unzip \
