@@ -20,6 +20,7 @@ RUN install-php-extensions intl
 RUN install-php-extensions mysqli
 RUN install-php-extensions oci8
 RUN install-php-extensions opcache
+RUN install-php-extensions pcntl
 RUN install-php-extensions pdo_mysql
 RUN install-php-extensions pdo_oci
 RUN install-php-extensions pdo_sqlsrv
