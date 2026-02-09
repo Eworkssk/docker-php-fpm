@@ -65,7 +65,6 @@ PDO
 pdo_mysql
 PDO_OCI
 pdo_sqlite
-pdo_sqlsrv
 Phar
 posix
 raphf
@@ -81,7 +80,6 @@ SPL
 sqlite3
 ssh2
 standard
-sqlsrv
 tokenizer
 vips
 xml
