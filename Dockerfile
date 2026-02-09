@@ -23,12 +23,10 @@ RUN install-php-extensions opcache
 RUN install-php-extensions pcntl
 RUN install-php-extensions pdo_mysql
 RUN install-php-extensions pdo_oci
-RUN install-php-extensions pdo_sqlsrv
 RUN install-php-extensions redis
 RUN install-php-extensions soap
 RUN install-php-extensions sockets
 RUN install-php-extensions ssh2
-RUN install-php-extensions sqlsrv
 RUN install-php-extensions vips
 RUN install-php-extensions yaml
 RUN install-php-extensions zip
