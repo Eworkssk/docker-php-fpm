@@ -2,16 +2,14 @@
 
 ![Docker Stars](https://img.shields.io/docker/stars/eworkssk/php-fpm?style=for-the-badge)
 ![Docker Pulls](https://img.shields.io/docker/pulls/eworkssk/php-fpm?style=for-the-badge)
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/eworkssk/php-fpm/8.4?style=for-the-badge)
-![Docker Image Version](https://img.shields.io/docker/v/eworkssk/php-fpm/8.4?label=PHP%20Version&style=for-the-badge)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/eworkssk/php-fpm/8.5?style=for-the-badge)
+![Docker Image Version](https://img.shields.io/docker/v/eworkssk/php-fpm/8.5?label=PHP%20Version&style=for-the-badge)
 
 **Automatic weekly updates**
 
-⚡ PHP 7.4, 8.1, 8.2, 8.3 and 8.4 now available for both `linux/amd64` and `linux/arm64/v8`
+⚡ PHP 7.4, 8.1, 8.2, 8.3, 8.4 and 8.5 now available for both `linux/amd64` and `linux/arm64/v8`
 
 💡 Do you need PHP CLI instead? Check out our [eworkssk/php-cli](https://github.com/Eworkssk/docker-php-cli) image
-
-⚠️ PHP 7.1 build is now unsupported and weekly updates are disabled
 
 ## Pull
 ```
@@ -19,7 +17,7 @@ docker pull eworkssk/php-fpm:latest
 ```
 or for specific PHP version:
 ```
-docker pull eworkssk/php-fpm:8.4
+docker pull eworkssk/php-fpm:8.5
 ```
 
 ## Usage
@@ -53,7 +51,6 @@ dom
 exif
 fileinfo
 filter
-ftp
 gd
 geospatial
 gettext
@@ -65,18 +62,19 @@ imagick
 imap
 intl
 json
+lexbor
 libxml
 mbstring
 mysqli
 mysqlnd
 oci8
 openssl
+pcntl
 pcre
 PDO
 pdo_mysql
 PDO_OCI
 pdo_sqlite
-pdo_sqlsrv
 Phar
 posix
 random
@@ -92,9 +90,9 @@ sodium
 SPL
 sqlite3
 ssh2
-sqlsrv
 standard
 tokenizer
+uri
 vips
 xml
 xmlreader
@@ -118,6 +116,7 @@ poppler-utils
 rclone
 ssh
 unzip
+libvips
 zip
 xz-utils
 ```
