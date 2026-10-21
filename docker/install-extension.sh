@@ -22,7 +22,7 @@ phpize7.4
 make -j"$(nproc)"
 make install
 
-echo "extension=$name.so" > "/etc/php/7.4/mods-available/$name.ini"
+printf "; priority=30\nextension=%s.so\n" "$name" > "/etc/php/7.4/mods-available/$name.ini"
 phpenmod -v 7.4 "$name"
 
 cd /

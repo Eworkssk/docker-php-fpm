@@ -25,6 +25,8 @@ RUN apt-get update -y && apt-get install --no-install-recommends --no-install-su
     php7.4-gd \
     php7.4-gnupg \
     php7.4-http \
+    php7.4-propro \
+    php7.4-raphf \
     php7.4-imagick \
     php7.4-imap \
     php7.4-intl \
@@ -93,7 +95,7 @@ RUN apt-get update -y && apt-get install --no-install-recommends --no-install-su
     install-extension oci8 /tmp/php-src/ext/oci8 --with-oci8=instantclient,$IC_DIR && \
     install-extension pdo_oci /tmp/php-src/ext/pdo_oci --with-pdo-oci=instantclient,$IC_DIR && \
     rm -rf /tmp/php-src && \
-    install-extension csv https://pecl.php.net/get/csv-0.3.1.tgz && \
+    install-extension csv https://pecl.php.net/get/CSV-0.3.1.tgz && \
     install-extension decimal https://pecl.php.net/get/decimal-1.5.1.tgz && \
     install-extension geospatial https://pecl.php.net/get/geospatial-0.3.2.tgz && \
     install-extension inotify https://pecl.php.net/get/inotify-3.0.0.tgz && \
@@ -150,11 +152,13 @@ COPY ./docker/docker-php-entrypoint /usr/local/bin/
 COPY ./custom.ini /etc/php/7.4/fpm/conf.d/xy-custom.ini
 COPY ./pools/* /etc/php/7.4/fpm/pool.d/
 
+USER www-data
+
 # Fail the build if a dependency pulled in another PHP version or an extension is missing
 RUN test "$(php -r 'echo PHP_MAJOR_VERSION . "." . PHP_MINOR_VERSION;')" = "7.4" && \
     ! ls /usr/bin/php8* >/dev/null 2>&1 && \
     for module in bcmath bz2 calendar csv decimal exif gd geospatial gettext gnupg http imagick imap inotify intl \
-        mcrypt mysqli oci8 pdo_mysql PDO_OCI redis soap sockets ssh2 vips yaml zip zstd "Zend OPcache"; do \
+        mcrypt mysqli oci8 pdo_mysql PDO_OCI raphf redis soap sockets ssh2 vips yaml zip zstd "Zend OPcache"; do \
         php -m | grep -qx "$module" || { echo "Missing PHP module: $module" >&2; exit 1; }; \
     done && \
     php-fpm -t
@@ -171,8 +175,6 @@ RUN extension_dir="$(php -r 'echo ini_get("extension_dir");')" && \
     php -r 'try { new PDO("oci:dbname=//127.0.0.1:1/x", "u", "p"); } catch (PDOException $e) { echo $e->getMessage(); }' | tee /dev/stderr | grep -q 'ORA-12'
 
 WORKDIR /var/www/html
-
-USER www-data
 
 ENTRYPOINT ["docker-php-entrypoint"]
 STOPSIGNAL SIGQUIT
