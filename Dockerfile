@@ -1,5 +1,6 @@
 FROM php:8.5-fpm
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions.orig
+COPY --chmod=755 ./install-php-extensions-retry.sh /usr/local/bin/install-php-extensions
 
 ENV PHP_POOL_DIR=/usr/local/etc/php-fpm.d
 
