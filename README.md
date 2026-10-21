@@ -7,6 +7,8 @@
 
 **Automatic weekly updates**
 
+⚠️ PHP 7.4 is end-of-life and the official `php:7.4` image is no longer updated. This image is built on Debian 12 with PHP from the [Sury repository](https://deb.sury.org/), which ships backported security fixes. The layout (`$PHP_INI_DIR`, `/usr/local/etc/php-fpm.d`, `php-fpm`) matches the official image.
+
 💡 Do you need PHP CLI instead? Check out our [eworkssk/php-cli](https://github.com/Eworkssk/docker-php-cli) image.
 
 ## Pull
